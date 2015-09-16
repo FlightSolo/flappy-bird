@@ -1,5 +1,5 @@
 var DEBUG = false;
-var SPEED = 250;
+var SPEED = 500;
 var GRAVITY = 18;
 var FLAP = 420;
 var SPAWN_RATE = 1 / 1.2;
