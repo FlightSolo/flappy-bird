@@ -1,6 +1,6 @@
 var DEBUG = false;
 var SPEED = 850;
-var GRAVITY = 18;
+var GRAVITY = 18;//vertical speed
 var FLAP = 420;
 var SPAWN_RATE = 1 / 1.2;
 var OPENING = 1000;
@@ -45,8 +45,8 @@ var game = new Phaser.Game(
 function preload() {
     var assets = {
         spritesheet: {
-            birdie: ['assets/birdie.png', 24, 24],
-            clouds: ['assets/clouds.png', 128, 64]
+            birdie: ['assets/birdie.png', 24, 24],// image size 
+            clouds: ['assets/clouds.png', 128, 64]// clouds size
         },
         image: {
             finger: ['assets/finger.png'],
@@ -190,7 +190,7 @@ function reset() {
     instText.setText("TOUCH TO FLAP\nBIRDIE WINGS");
     gameOverText.renderable = false;
     birdie.body.allowGravity = false;
-    birdie.angle = 0;
+    birdie.angle = 0;// angle 
     birdie.reset(game.world.width / 4, game.world.height / 2);
     birdie.scale.setTo(2, 2);
     birdie.animations.play('fly');
@@ -219,7 +219,7 @@ function flap() {
     }
     if (!gameOver) {
         birdie.body.velocity.y = -FLAP;
-        flapSnd.play();
+        flapSnd.play();// when to dectect the game is over
     }
 }
 
@@ -294,7 +294,7 @@ function addScore(_, inv) {
 }
 
 function setGameOver() {
-    gameOver = true;
+    gameOver = true;//
     instText.setText("TOUCH BIRDIE\nTO TRY AGAIN");
     instText.renderable = true;
     var hiscore = window.localStorage.getItem('hiscore');
@@ -305,10 +305,10 @@ function setGameOver() {
     gameOverText.renderable = true;
     // Stop all fingers
     fingers.forEachAlive(function(finger) {
-        finger.body.velocity.x = 0;
+        finger.body.velocity.x = ;
     });
     invs.forEach(function(inv) {
-        inv.body.velocity.x = 0;
+        inv.body.velocity.x = ;
     });
     // Stop spawning fingers
     fingersTimer.stop();
@@ -328,7 +328,7 @@ function update() {
         if (
             gameOver ||
             birdie.angle > 90 ||
-            birdie.angle < -90
+            birdie.angle < -90// birdie goes back to normal
         ) {
             birdie.angle = 90;
             birdie.animations.stop();
