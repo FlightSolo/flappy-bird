@@ -305,10 +305,10 @@ function setGameOver() {
     gameOverText.renderable = true;
     // Stop all fingers
     fingers.forEachAlive(function(finger) {
-        finger.body.velocity.x = ;
+        finger.body.velocity.x = 0 ;
     });
     invs.forEach(function(inv) {
-        inv.body.velocity.x = ;
+        inv.body.velocity.x = 0;
     });
     // Stop spawning fingers
     fingersTimer.stop();
@@ -349,7 +349,8 @@ function update() {
         } else {
             // Check game over
             game.physics.overlap(birdie, fingers, setGameOver);
-            if (!gameOver && birdie.body.bottom >= game.world.bounds.bottom) {
+            //if (!gameOver && birdie.body.bottom >= game.world.bounds.bottom) 
+            if (!gameOver) {
                 setGameOver();
             }
             // Add score
