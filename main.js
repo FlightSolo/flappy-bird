@@ -350,7 +350,7 @@ function update() {
             // Check game over
             game.physics.overlap(birdie, fingers, setGameOver);
             //if (!gameOver && birdie.body.bottom >= game.world.bounds.bottom) 
-            if (!gameOver) {
+            if (!gameOver && true) {
                 setGameOver();
             }
             // Add score
